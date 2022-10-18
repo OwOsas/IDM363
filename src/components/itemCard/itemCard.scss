@@ -12,7 +12,8 @@ $fontSize-review: 1rem;
 
   padding: 1rem;
   width: 275px;
-  margin: 1rem;
+
+  cursor: default;
 
   background-color: rgb(255, 255, 255);
 
@@ -22,19 +23,24 @@ $fontSize-review: 1rem;
 
   // background-color: red;
   .itemImageContainer {
-    img {
-      height: 100%;
-      width: 100%;
-    }
-    
+    position: relative;
+    overflow: hidden;
+    text-align: start;
   }
   .itemName {
     font-size: $fontSize-itemName;
+    text-align: start;
+    color: black;
+
+    &:hover {
+      color: grey;
+    }
   }
   .prices {
     font-size: $fontSize-price;
     display: flex;
     gap: 0.25rem;
+    color: black;
 
     .currentPrice {
       font-size: $fontSize-price;
@@ -45,8 +51,18 @@ $fontSize-review: 1rem;
     }
 
     .originalPrice {
-      color: rgb(157, 157, 157);
+      color: $clr_lightGrey;
       text-decoration: line-through;
+    }
+  }
+
+  .addToCart {
+    padding: 0.25rem 2rem;
+    background-color: black;
+    transition: 0.3s;
+
+    &:hover {
+      background-color: grey;
     }
   }
 }

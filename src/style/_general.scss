@@ -16,12 +16,19 @@ body {
   box-sizing: border-box;
 }
 
-button {
+.buttonStyle {
   background-color: black;
   color: white;
   border: none;
   font-size: 1rem;
-  padding: 0.25rem;
-  width: 60%;
+  padding: 0.35rem;
   align-self: flex-end;
+
+  cursor: pointer;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
 }

@@ -1,0 +1,11 @@
+.Home {
+}
+.cardContainer {
+  width: auto;
+  padding: 2rem;
+
+  & > * {
+    display: inline-block;
+    margin: 1rem;
+  }
+}

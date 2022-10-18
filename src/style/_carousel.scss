@@ -1,0 +1,38 @@
+.carousel-root {
+}
+
+.control-next {
+  transform: translate(80%) !important;
+}
+
+.control-prev {
+  transform: translate(-80%) !important;
+}
+
+.control-arrow {
+  height: 50px !important;
+  top: calc(50% - 25px) !important;
+  background-color: red;
+  background: rgb(77, 77, 77) !important;
+  background-color: rgb(77, 77, 77) !important;
+  opacity: 0.5 !important;
+  transition: 0.3s !important;
+
+  &:hover {
+    background-color: black !important;
+    opacity: 0.8 !important;
+  }
+}
+
+.carousel {
+  position: relative;
+  &:hover {
+    .control-arrow {
+      transform: translate(0) !important;
+    }
+  }
+}
+
+.dot {
+  box-shadow: none !important;
+}

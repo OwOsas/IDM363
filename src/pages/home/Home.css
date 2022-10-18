@@ -1,1 +1,8 @@
-/*# sourceMappingURL=Home.css.map */
+.cardContainer {
+  width: auto;
+  padding: 2rem;
+}
+.cardContainer > * {
+  display: inline-block;
+  margin: 1rem;
+}/*# sourceMappingURL=Home.css.map */

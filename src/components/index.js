@@ -1,3 +1,4 @@
 import Header from './header/Header';
 import ItemCard from './itemCard/itemCard';
-export { Header, ItemCard };
+import CustomCarousel from './customCarousel/customCarousel';
+export { Header, ItemCard, CustomCarousel };
