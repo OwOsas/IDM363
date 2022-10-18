@@ -1,9 +1,15 @@
 import React from 'react';
-import css from './Home.css';
+import { ItemCard } from '../../components';
+import './Home.css';
 import { Link, useMatch, useResolvedPath } from 'react-router-dom';
 
 function Home() {
-  return <div className='Home'>Home</div>;
+  return (
+    <div className='Home'>
+      Home
+      <ItemCard></ItemCard>
+    </div>
+  );
 }
 
 export default Home;

@@ -1,2 +1,3 @@
 import Header from './header/Header';
-export { Header };
+import ItemCard from './itemCard/itemCard';
+export { Header, ItemCard };

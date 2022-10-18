@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import css from './header.css';
+import './header.css';
 import { Link, useMatch, useResolvedPath } from 'react-router-dom';
 
 const Header = ({ logo }) => {
