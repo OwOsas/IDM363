@@ -5,6 +5,10 @@ $fontSize-price: 1.5rem;
 $fontSize-priceDigit: 0.875rem;
 $fontSize-review: 1rem;
 
+.card {
+  transition: 0.3s;
+}
+
 .itemCard {
   * {
     font-family: $font_primary;

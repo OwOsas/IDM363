@@ -1,35 +1,25 @@
 import React, { useState } from 'react';
 import './header.css';
+import { magnifier, arrow } from '../../img/icons';
+
 import { Link, useMatch, useResolvedPath } from 'react-router-dom';
 
 const Header = ({ logo }) => {
-  const [isBurgerActive, setBurgerState] = useState(false);
-
-  function burgerClick() {}
   return (
     <header>
-      <div
-        className={
-          isBurgerActive ? 'header_container ' + 'active' : 'header_container'
-        }
-      >
-        <Link onClick={() => setBurgerState(false)} to='/'>
+      <div className='header'>
+        <Link className='logo' to='/'>
           <img src={logo} alt='' />
         </Link>
-        <div
-          onClick={() => setBurgerState(!isBurgerActive)}
-          className={isBurgerActive ? 'burger ' + 'active' : 'burger'}
-        ></div>
-        <ul className={isBurgerActive ? 'active' : ''}>
-          <HeaderLink onClick={() => setBurgerState(false)} to='/portfolio'>
-            Portfolio
-          </HeaderLink>
-          <HeaderLink onClick={() => setBurgerState(false)} to='/resume'>
-            Resume
-          </HeaderLink>
-          <HeaderLink onClick={() => setBurgerState(false)} to='/contact'>
-            Contact Me
-          </HeaderLink>
+        <div className='searchBar'>
+          <input type='text' />
+          <button>
+            <img src={magnifier} alt='' />
+          </button>
+        </div>
+        <ul>
+          <HeaderLink to='/portfolio'>Log In / Sign Up</HeaderLink>
+          <HeaderLink to='/resume'>Cart</HeaderLink>
         </ul>
       </div>
     </header>

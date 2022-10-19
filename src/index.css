@@ -32,6 +32,22 @@ button {
   cursor: pointer;
 }
 
+a {
+  text-decoration: none;
+  color: black;
+}
+
+ul,
+li {
+  text-decoration: none;
+  color: black;
+  list-style: none;
+}
+
+input :active {
+  border: none;
+}
+
 .control-next {
   transform: translate(80%) !important;
 }

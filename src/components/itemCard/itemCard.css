@@ -1,4 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Share+Tech&display=swap");
+.card {
+  transition: 0.3s;
+}
+
 .itemCard {
   padding: 1rem;
   width: 275px;

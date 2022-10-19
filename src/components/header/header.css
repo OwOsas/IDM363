@@ -1,1 +1,49 @@
-/*# sourceMappingURL=Header.css.map */
+@import url("https://fonts.googleapis.com/css2?family=Share+Tech&display=swap");
+header {
+  width: 100%;
+}
+header .header {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+}
+header .header .logo {
+  display: block;
+  height: 3rem;
+}
+header .header .logo img {
+  height: 100%;
+}
+header .header .searchBar {
+  position: relative;
+  width: 50%;
+}
+header .header .searchBar input {
+  border: none;
+  background-color: transparent;
+  height: 100%;
+  width: 100%;
+  height: 2rem;
+  border: 2px black solid;
+  border-radius: 100rem;
+}
+header .header .searchBar button {
+  position: absolute;
+  right: 0;
+  background-color: black;
+  height: 2rem;
+  padding: 0 1rem;
+  border-radius: 100rem;
+}
+header .header ul {
+  display: flex;
+}
+header .header ul * {
+  font-family: "Share Tech", sans-serif;
+}
+header .header ul li {
+  font-size: 1.5rem;
+}/*# sourceMappingURL=Header.css.map */
