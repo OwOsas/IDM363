@@ -31,6 +31,9 @@ button {
   background: none;
   border: none;
   cursor: pointer;
+
+  &:hover{
+  }
 }
 
 a {
@@ -46,7 +49,9 @@ li {
 }
 
 input {
-  :active {
-    border: none;
+  &:active,
+  &:focus {
+    border: 1px black solid;
+    outline: none;
   }
 }

@@ -8,7 +8,6 @@ import test from '../../img/test-img.png';
 function Home() {
   return (
     <div className='Home'>
-      Home
       <div className='cardContainer'>
         <ItemCard></ItemCard>
         <ItemCard></ItemCard>

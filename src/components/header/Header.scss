@@ -24,16 +24,21 @@ header {
     .searchBar {
       position: relative;
       width: 50%;
+      height: 2.5rem;
 
       input {
         border: none;
         background-color: transparent;
         height: 100%;
         width: 100%;
+        padding: 0 5rem 0 1.5rem;
 
-        height: 2rem;
+        // height: 3rem;
         border: 2px black solid;
         border-radius: 100rem;
+
+        font-size: 1.25rem;
+        font-family: $font_primary;
       }
 
       button {
@@ -41,14 +46,17 @@ header {
         right: 0;
         background-color: black;
 
-        height: 2rem;
-        padding: 0 1rem;
+        height: 100%;
+        padding: 0 1.5rem;
         border-radius: 100rem;
       }
     }
 
     ul {
       display: flex;
+      width: auto;
+      gap: 1rem;
+
       * {
         font-family: $font_primary;
       }
