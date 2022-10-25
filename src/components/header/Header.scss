@@ -49,6 +49,14 @@ header {
         height: 100%;
         padding: 0 1.5rem;
         border-radius: 100rem;
+
+        border: 2px black solid;
+
+        transition: 0.2s;
+
+        &:hover {
+          background-color: $clr_darkGrey;
+        }
       }
     }
 
@@ -56,9 +64,40 @@ header {
       display: flex;
       width: auto;
       gap: 1rem;
+      position: relative;
 
       * {
         font-family: $font_primary;
+      }
+
+      .cartIcon {
+        margin: 0.5rem;
+        vertical-align: middle;
+
+        .itemInCart {
+          font-size: 0.8rem;
+          vertical-align: top;
+          width: 16px;
+          height: 16px;
+          position: absolute;
+          background-color: rgb(235, 200, 0);
+          border-radius: 1rem;
+          align-self: center;
+          text-align: center;
+
+          right: 0;
+          top: 0;
+
+          &.hidden {
+            display: none;
+          }
+
+          transform: translate(23%, -30%);
+          span {
+            vertical-align: middle;
+            text-align: center;
+          }
+        }
       }
 
       li {

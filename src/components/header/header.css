@@ -40,14 +40,45 @@ header .header .searchBar button {
   height: 100%;
   padding: 0 1.5rem;
   border-radius: 100rem;
+  border: 2px black solid;
+  transition: 0.2s;
+}
+header .header .searchBar button:hover {
+  background-color: rgb(89, 89, 89);
 }
 header .header ul {
   display: flex;
   width: auto;
   gap: 1rem;
+  position: relative;
 }
 header .header ul * {
   font-family: "Share Tech", sans-serif;
+}
+header .header ul .cartIcon {
+  margin: 0.5rem;
+  vertical-align: middle;
+}
+header .header ul .cartIcon .itemInCart {
+  font-size: 0.8rem;
+  vertical-align: top;
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  background-color: rgb(235, 200, 0);
+  border-radius: 1rem;
+  align-self: center;
+  text-align: center;
+  right: 0;
+  top: 0;
+  transform: translate(23%, -30%);
+}
+header .header ul .cartIcon .itemInCart.hidden {
+  display: none;
+}
+header .header ul .cartIcon .itemInCart span {
+  vertical-align: middle;
+  text-align: center;
 }
 header .header ul li {
   font-size: 1.5rem;

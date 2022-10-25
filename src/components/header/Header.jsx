@@ -12,19 +12,21 @@ const Header = ({ logo }) => {
           <img src={logo} alt='' />
         </Link>
         <div className='searchBar'>
-          <input type='text' defaultValue={'Search...'} />
+          <input type='text' placeholder='Search...' />
           <button>
             <img src={magnifier} alt='' />
           </button>
         </div>
         <ul>
-          <HeaderLink to='/portfolio'>Log In / Sign Up</HeaderLink>
-          <HeaderLink to='/resume'>
-            <span>
-              <img src={cart} alt='Cart' />
-              <span className='itemInCart'>1</span>
-            </span>
+          <HeaderLink to='/LogIn'>Log In / Sign Up</HeaderLink>
+          <HeaderLink to='/Cart'>
             Cart
+            <span className='cartIcon'>
+              <img src={cart} alt='Cart' />
+              <span className='itemInCart'>
+                <span>1</span>
+              </span>
+            </span>
           </HeaderLink>
         </ul>
       </div>
