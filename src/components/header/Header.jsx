@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import './header.css';
+import css from './header.css';
 import { magnifier, arrow, cart } from '../../img/icons';
+import { useContext } from 'react';
 
 import { Link, useMatch, useResolvedPath } from 'react-router-dom';
 
