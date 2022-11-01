@@ -9,11 +9,31 @@ function Home() {
   return (
     <div className='Home'>
       <div className='cardContainer'>
-        <ItemCard></ItemCard>
-        <ItemCard></ItemCard>
-        <ItemCard></ItemCard>
+        <ItemCard
+          itemName='Name'
+          itemImages={[test, test]}
+          originalPrice='99.90'
+          discount='50'
+        ></ItemCard>
+        <ItemCard
+          itemName='Name'
+          itemImages={[test, test]}
+          originalPrice='99.90'
+          discount='50'
+        ></ItemCard>
+        <ItemCard
+          itemName='Name'
+          itemImages={[test, test]}
+          originalPrice='99.90'
+          discount='50'
+        ></ItemCard>
+        <ItemCard
+          itemName='Name'
+          itemImages={[test, test]}
+          originalPrice='99.90'
+          discount='50'
+        ></ItemCard>
       </div>
-      {/* <CustomCarousel></CustomCarousel> */}
     </div>
   );
 }

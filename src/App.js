@@ -1,4 +1,4 @@
-import { Header } from './components';
+import { Header, Footer } from './components';
 import './index.css';
 import logo from './img/test-img.png';
 import { Home } from './pages';
@@ -11,6 +11,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
       </Routes>
+      <Footer />
     </div>
   );
 }

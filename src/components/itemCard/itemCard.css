@@ -5,7 +5,8 @@
 
 .itemCard {
   padding: 1rem;
-  width: 275px;
+  max-width: 300px;
+  min-width: 200px;
   cursor: default;
   background-color: rgb(255, 255, 255);
   display: flex;
@@ -52,4 +53,20 @@
 }
 .itemCard .addToCart:hover {
   background-color: grey;
+}
+
+@media only screen and (max-width: 600px) {
+  .Card {
+    margin: 0 !important;
+  }
+  .itemCard {
+    width: auto;
+    max-width: 350px;
+  }
+  .itemName {
+    font-size: 0.9rem;
+  }
+  .prices * {
+    font-size: 0.8rem;
+  }
 }/*# sourceMappingURL=itemCard.css.map */

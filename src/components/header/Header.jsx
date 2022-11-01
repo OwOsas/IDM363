@@ -11,12 +11,12 @@ const Header = ({ logo }) => {
         <Link className='logo' to='/'>
           <img src={logo} alt='' />
         </Link>
-        <div className='searchBar'>
+        {/* <div className='searchBar'>
           <input type='text' placeholder='Search...' />
           <button>
             <img src={magnifier} alt='' />
           </button>
-        </div>
+        </div> */}
         <ul>
           <HeaderLink to='/LogIn'>Log In / Sign Up</HeaderLink>
           <HeaderLink to='/Cart'>

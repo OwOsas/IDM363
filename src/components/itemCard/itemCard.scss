@@ -15,7 +15,8 @@ $fontSize-review: 1rem;
   }
 
   padding: 1rem;
-  width: 275px;
+  max-width: 300px;
+  min-width: 200px;
 
   cursor: default;
 
@@ -68,5 +69,22 @@ $fontSize-review: 1rem;
     &:hover {
       background-color: grey;
     }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .Card {
+    margin: 0 !important;
+  }
+  .itemCard {
+    width: auto;
+    max-width: 350px;
+  }
+
+  .itemName {
+    font-size: 0.9rem;
+  }
+  .prices * {
+    font-size: 0.8rem;
   }
 }
