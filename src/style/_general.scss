@@ -22,7 +22,7 @@ body {
   border: none;
   font-size: 1rem;
   padding: 0.35rem;
-  align-self: flex-end;
+  align-self: flex-start;
 
   cursor: pointer;
 }
@@ -32,7 +32,7 @@ button {
   border: none;
   cursor: pointer;
 
-  &:hover{
+  &:hover {
   }
 }
 

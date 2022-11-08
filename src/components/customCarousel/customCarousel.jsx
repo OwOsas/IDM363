@@ -1,21 +1,16 @@
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
-import test from '../../img/test-img.png';
-import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
+import React, { useState } from 'react';
+import './customCarousel.css';
 import { Carousel } from 'react-responsive-carousel';
+import testImg from '../../img/test-img.png';
 
-function customCarousel() {
+const CustomCarousel = () => {
   return (
     <Carousel showThumbs={false} infiniteLoop={true} showStatus={false}>
-      <div>
-        <img src={test} alt='' />
-      </div>
-
-      <div>
-        <img src={test} alt='' />
-      </div>
+      <img src={testImg} alt='' />
+      <img src={testImg} alt='' />
+      <img src={testImg} alt='' />
     </Carousel>
   );
-}
+};
 
-export default customCarousel;
+export default CustomCarousel;

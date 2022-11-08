@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Footer.css';
+import './footer.css';
 import { magnifier, arrow, cart } from '../../img/icons';
 
 import { Link, useMatch, useResolvedPath } from 'react-router-dom';

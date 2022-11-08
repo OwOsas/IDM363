@@ -1,52 +1,57 @@
 import React from 'react';
 import './itemCard.css';
-import test from '../../img/test-img.png';
-import { Link, useMatch, useResolvedPath } from 'react-router-dom';
-import { Carousel } from 'react-responsive-carousel';
+import { Link } from 'react-router-dom';
+import PropType from 'prop-types';
+import { useDispatch } from 'react-redux';
+import { addItem } from '../../redux/cartSlice';
 
-const itemCard = ({ itemImages, itemName, originalPrice, discount }) => {
-  var originalPriceDigit = getDigit(originalPrice);
-  originalPrice = getNumber(originalPrice);
+function ItemCard({ uid, itemImage, itemName, price }) {
+  //Get original price digit and without digit
+  var priceDigit = getDigit(price);
+  price = getNumber(price);
 
-  var currentPrice = getCurrentPrice(originalPrice, discount);
-  var currentPriceDigit = getDigit(currentPrice);
-  currentPrice = getNumber(currentPrice);
+  if (itemName.length > 47) {
+    itemName = itemName.substring(0, 47);
+    itemName += '...';
+  }
 
-  itemImages = itemImages.map((img, index) => (
-    <div key={index}>
-      <img src={img} alt='' />
-    </div>
-  ));
+  const dispatch = useDispatch();
 
   return (
-    <div className='Card'>
-      <div className='itemCard'>
-        <Link className='itemImageContainer'>
-          <Carousel showThumbs={false} infiniteLoop={true} showStatus={false}>
-            {itemImages}
-          </Carousel>
-        </Link>
+    <div className='itemCard'>
+      <Link className='itemImageContainer'>
+        <img src={itemImage} alt='' />
+      </Link>
 
-        <Link className='itemName'>{itemName}</Link>
-        <div className='prices'>
-          <span className='currentPriceContainer'>
-            <span className='currentPrice'>${currentPrice}</span>
-            <span className='priceDigit'>{currentPriceDigit}</span>
-          </span>
-          <span className='originalPrice'>
+      <Link className='itemName'>{itemName}</Link>
+      <div className='prices'>
+        <span className='currentPriceContainer'>
+          <span className='currentPrice'>${price}</span>
+          <span className='priceDigit'>{priceDigit}</span>
+        </span>
+        {/* <span className='originalPrice'>
             <span className='currentPrice'>${originalPrice}</span>
             <span className='priceDigit'>{originalPriceDigit}</span>
           </span>
           <span>|</span>
-          <span className='discount'>{discount}% Off</span>
-        </div>
-        <button className='buttonStyle addToCart'>Add to Cart</button>
+          <span className='discount'>{discount}% Off</span> */}
       </div>
+      <button
+        onClick={() => dispatch(addItem(uid))}
+        className='buttonStyle addToCart'
+      >
+        Add to Cart
+      </button>
     </div>
   );
-};
+}
+export default ItemCard;
 
-export default itemCard;
+ItemCard.PropType = {
+  itemImages: PropType.string,
+  itemName: PropType.string.isRequired,
+  price: PropType.number.isRequired,
+};
 
 function getNumber(number) {
   number = Number(number);
@@ -59,10 +64,4 @@ function getDigit(number) {
   number = Number(number);
   var digit = Math.floor(number.toFixed(2) * 100) % 100;
   return digit;
-}
-
-function getCurrentPrice(number, discount) {
-  discount = 1 - Number(discount) / 100;
-  number = number * discount;
-  return number;
 }

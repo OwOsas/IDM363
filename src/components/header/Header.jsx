@@ -1,11 +1,18 @@
-import React, { useState } from 'react';
-import css from './header.css';
+import React from 'react';
+import './header.css';
 import { magnifier, arrow, cart } from '../../img/icons';
-import { useContext } from 'react';
-
 import { Link, useMatch, useResolvedPath } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const Header = ({ logo }) => {
+  const { cartItems } = useSelector((state) => state.cart);
+  var cartCount = 0;
+  cartItems.map((item) => {
+    return (cartCount += item.quantity);
+  });
+  if (cartCount > 99) {
+    cartCount = '99+';
+  }
   return (
     <header>
       <div className='header'>
@@ -24,8 +31,11 @@ const Header = ({ logo }) => {
             Cart
             <span className='cartIcon'>
               <img src={cart} alt='Cart' />
-              <span className='itemInCart'>
-                <span>1</span>
+              <span
+                className='itemInCart'
+                style={{ display: cartCount === 0 ? 'none' : '' }}
+              >
+                <span>{cartCount}</span>
               </span>
             </span>
           </HeaderLink>

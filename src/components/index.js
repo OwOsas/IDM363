@@ -1,5 +1,5 @@
 import Header from './header/Header';
-import ItemCard from './itemCard/itemCard';
-import CustomCarousel from './customCarousel/customCarousel';
+import ItemCard from './itemCard/ItemCard';
 import Footer from './footer/Footer';
-export { Header, ItemCard, CustomCarousel, Footer };
+import CardContainer from './cardContainer/CardContainer';
+export { Header, ItemCard, Footer, CardContainer };

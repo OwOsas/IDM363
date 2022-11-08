@@ -1,7 +1,7 @@
 import { Header, Footer } from './components';
 import './index.css';
 import logo from './img/test-img.png';
-import { Home } from './pages';
+import { Home, Cart } from './pages';
 import { Route, Routes } from 'react-router-dom';
 
 function App() {
@@ -10,6 +10,7 @@ function App() {
       <Header logo={logo} />
       <Routes>
         <Route path='/' element={<Home />} />
+        <Route path='/Cart' element={<Cart />} />
       </Routes>
       <Footer />
     </div>
