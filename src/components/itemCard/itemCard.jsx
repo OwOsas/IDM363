@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import PropType from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { addItem } from '../../redux/cartSlice';
+import { test_img } from '../../img';
 
 function ItemCard({ uid, itemImage, itemName, price }) {
   //Get original price digit and without digit
@@ -19,8 +20,11 @@ function ItemCard({ uid, itemImage, itemName, price }) {
 
   return (
     <div className='itemCard'>
-      <Link className='itemImageContainer'>
-        <img src={itemImage} alt='' />
+      <Link
+        className='itemImage'
+        style={{ backgroundImage: 'url(' + itemImage + ')' }}
+      >
+        {/* <img src={itemImage} alt='' /> */}
       </Link>
 
       <Link className='itemName'>{itemName}</Link>
@@ -30,11 +34,11 @@ function ItemCard({ uid, itemImage, itemName, price }) {
           <span className='priceDigit'>{priceDigit}</span>
         </span>
         {/* <span className='originalPrice'>
-            <span className='currentPrice'>${originalPrice}</span>
-            <span className='priceDigit'>{originalPriceDigit}</span>
-          </span>
-          <span>|</span>
-          <span className='discount'>{discount}% Off</span> */}
+          <span className='currentPrice'>${originalPrice}</span>
+          <span className='priceDigit'>{originalPriceDigit}</span>
+        </span>
+        <span>|</span>
+        <span className='discount'>{discount}% Off</span> */}
       </div>
       <button
         onClick={() => dispatch(addItem(uid))}
@@ -55,13 +59,13 @@ ItemCard.PropType = {
 
 function getNumber(number) {
   number = Number(number);
-  var digit = Math.floor(number.toFixed(2) * 100) % 100;
-  number = number - digit / 100;
+  var digit = Math.floor(number.toFixed(3) * 100) % 100;
+  number = Math.floor(number);
   return number;
 }
 
 function getDigit(number) {
   number = Number(number);
-  var digit = Math.floor(number.toFixed(2) * 100) % 100;
+  var digit = Math.floor(number.toFixed(3) * 1000) % 1000;
   return digit;
 }

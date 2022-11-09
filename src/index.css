@@ -79,4 +79,14 @@ input:active, input:focus {
 
 .dot {
   box-shadow: none !important;
+}
+
+.App,
+body,
+#root {
+  min-height: 100vh;
+}
+
+.content {
+  min-height: 85vh;
 }/*# sourceMappingURL=index.css.map */

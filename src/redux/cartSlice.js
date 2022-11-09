@@ -7,7 +7,7 @@ export const cartSlice = createSlice({
   },
   reducers: {
     addItem: (state, actions) => {
-      actions.payload = parseInt(actions.payload);
+      console.log(actions);
       if (
         state.cartItems.find((item) => item.uid === actions.payload) == null
       ) {
