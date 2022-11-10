@@ -22,6 +22,7 @@ export const cartSlice = createSlice({
               ...state.cartItems[index],
               quantity: state.cartItems[index].quantity + 1,
             };
+            
           } else {
             return item;
           }

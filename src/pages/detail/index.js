@@ -1,3 +1,3 @@
-import Cart from './Cart';
+import Detail from './Detail';
 
-export default Cart;
+export default Detail;

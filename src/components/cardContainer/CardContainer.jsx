@@ -4,13 +4,7 @@ import PropType from 'prop-types';
 import { ItemCard } from '../index';
 import { test_img } from '../../img';
 import { db } from '../../firebase/firebase-config';
-import {
-  collection,
-  doc,
-  getDoc,
-  getDocs,
-  onSnapshot,
-} from 'firebase/firestore';
+import { collection, onSnapshot } from 'firebase/firestore';
 import { useEffect, useState } from 'react';
 
 function CardContainer() {
@@ -19,22 +13,24 @@ function CardContainer() {
   function getInventory() {
     const inventoryRef = collection(db, 'inventory');
     const itemArray = [];
-    onSnapshot(inventoryRef, (querySnapshot) => {
-      querySnapshot.forEach((doc) => {
-        // setInventory([...inventory, doc.data()]);
-        itemArray.push({ ...doc.data(), uid: doc.id });
-      });
-      setInventory(itemArray);
-    });
+    onSnapshot(
+      inventoryRef,
+      (querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+          // setInventory([...inventory, doc.data()]);
+          itemArray.push({ ...doc.data(), uid: doc.id });
+        });
+        setInventory(itemArray);
+      },
+      []
+    );
   }
 
-  function consoleLog() {
-    console.log(inventory);
-  }
+  console.log(inventory);
 
   useEffect(() => {
     getInventory();
-  });
+  }, []);
 
   return (
     <div className='cardContainer'>

@@ -22,12 +22,15 @@ function ItemCard({ uid, itemImage, itemName, price }) {
     <div className='itemCard'>
       <Link
         className='itemImage'
+        to={'/Detail/' + uid}
         style={{ backgroundImage: 'url(' + itemImage + ')' }}
       >
         {/* <img src={itemImage} alt='' /> */}
       </Link>
 
-      <Link className='itemName'>{itemName}</Link>
+      <Link to={'/Detail/' + uid} className='itemName'>
+        {itemName}
+      </Link>
       <div className='prices'>
         <span className='currentPriceContainer'>
           <span className='currentPrice'>${price}</span>

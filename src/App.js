@@ -1,7 +1,7 @@
 import { Header, Footer } from './components';
 import './index.css';
 import logo from './img/test-img.png';
-import { Home, Cart, CreateListing } from './pages';
+import { Home, Cart, CreateListing, Detail } from './pages';
 import { Route, Routes } from 'react-router-dom';
 
 import { db } from './firebase/firebase-config';
@@ -17,6 +17,7 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='/Cart' element={<Cart />} />
           <Route path='/LogIn' element={<CreateListing />} />
+          <Route path='/Detail/:uid' element={<Detail />} />
         </Routes>
       </div>
       <Footer />
