@@ -1,12 +1,8 @@
-import React from 'react';
-import { CardContainer } from '../../components';
-import './Home.css';
 import { db } from '../../firebase/firebase-config';
 import { collection, onSnapshot } from 'firebase/firestore';
 import { useEffect, useState } from 'react';
-import test from '../../img/test-img.png';
 
-function Home() {
+function QueryInventory() {
   const [inventory, setInventory] = useState([]);
 
   function getInventory() {
@@ -30,11 +26,7 @@ function Home() {
   useEffect(() => {
     getInventory();
   }, []);
-  return (
-    <div className='Home'>
-      <CardContainer inventory={inventory}></CardContainer>
-    </div>
-  );
+  return <div></div>;
 }
 
-export default Home;
+export default QueryInventory;

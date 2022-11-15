@@ -18,20 +18,60 @@ export const cartSlice = createSlice({
       } else {
         state.cartItems.map((item, index) => {
           if (item.uid === actions.payload) {
-            state.cartItems[index] = {
+            return (state.cartItems[index] = {
               ...state.cartItems[index],
               quantity: state.cartItems[index].quantity + 1,
-            };
-            
+            });
           } else {
             return item;
           }
         });
       }
     },
+    increaseCount: (state, actions) => {
+      state.cartItems.map((item, index) => {
+        if (item.uid === actions.payload) {
+          return (state.cartItems[index] = {
+            ...state.cartItems[index],
+            quantity: state.cartItems[index].quantity + 1,
+          });
+        } else {
+          return item;
+        }
+      });
+    },
+    decreaseCount: (state, actions) => {
+      state.cartItems.map((item, index) => {
+        if (item.uid === actions.payload) {
+          if (state.cartItems[index].quantity === 1) {
+            return state.cartItems.splice(index, 1);
+          } else {
+            return (state.cartItems[index] = {
+              ...state.cartItems[index],
+              quantity: state.cartItems[index].quantity - 1,
+            });
+          }
+        } else {
+          return item;
+        }
+      });
+    },
+    setCount: (state, actions) => {
+      state.cartItems.map((item, index) => {
+        if (item.uid === actions.payload.uid) {
+          return (state.cartItems[index] = {
+            ...state.cartItems[index],
+            quantity: actions.payload.count,
+          });
+        } else {
+          return item;
+        }
+      });
+    },
   },
 });
 
-export const { addItem } = cartSlice.actions;
+export const { addItem, increaseCount, decreaseCount, setCount } =
+  cartSlice.actions;
 
 export default cartSlice.reducer;
