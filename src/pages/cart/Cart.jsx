@@ -13,53 +13,48 @@ import {
 } from '../../redux/cartSlice';
 
 function Cart() {
-  const [cart, setCart] = useState([]);
-  const { cartItems } = useSelector((state) => state.cart);
-  var cartItemQuantity = 0;
-  var cartItemTotal = 0;
-  var cartRender;
+  const [inventory, setInventory] = useState([]);
 
-  // console.log(cartArray);
-
-  function getCart() {
+  function getInventory() {
     const inventoryRef = collection(db, 'inventory');
     const itemArray = [];
-    var reduxItem;
     onSnapshot(
       inventoryRef,
       (querySnapshot) => {
         querySnapshot.forEach((doc) => {
-          if (cartItems.find((item) => item.uid === doc.id)) {
-            itemArray.push({
-              ...doc.data(),
-              uid: doc.id,
-            });
-          }
+          // setInventory([...inventory, doc.data()]);
+          itemArray.push({ ...doc.data(), uid: doc.id });
         });
-        setCart(itemArray);
+        setInventory(itemArray);
       },
       []
     );
-    cart.map((item) => {
-      return (cartItemTotal +=
-        cartItems.find((e) => e.uid === item.uid).quantity * item.price);
-      // return (cartItemTotal += item.quantity * item.price);
-    });
-    console.log('ItemArray: ', itemArray);
   }
 
-  const dispatch = useDispatch();
-
-  console.log(cart);
-
   useEffect(() => {
-    getCart();
+    getInventory();
   }, []);
 
+  const { cartItems } = useSelector((state) => state.cart);
+  const dispatch = useDispatch();
+  var cartItemQuantity = 0;
+  var cartItemTotal = 0;
+
+  cartItems.map((item) => {
+    cartItemQuantity += item.quantity;
+
+    var inventoryFind = inventory.find((e) => e.uid === item.uid);
+    if (inventoryFind) {
+      cartItemTotal += inventoryFind.price * item.quantity;
+    }
+  });
+
   return (
-    <>
+    <div className='pageContainer'>
       <div className='cart'>
-        {cart.map((item, index) => {
+        <h1>Cart</h1>
+        {cartItems.map((item, index) => {
+          var inventoryFind = inventory.find((e) => e.uid === item.uid);
           return (
             <div className='cartItem' key={index}>
               <div className='imgContainer'>
@@ -70,8 +65,12 @@ function Cart() {
               </div>
 
               <div className='itemDetail'>
-                <div className='itemName'>{item.itemName}</div>
-                <div className='itemUnitPrice'>${item.price}/ea.</div>
+                <div className='itemName'>
+                  {inventoryFind ? inventoryFind.itemName : ''}
+                </div>
+                <div className='itemUnitPrice'>
+                  ${inventoryFind ? inventoryFind.price : ''}/ea.
+                </div>
               </div>
               <div className='itemTotal'>
                 <div className='itemCount'>
@@ -81,7 +80,7 @@ function Cart() {
                   >
                     <img src={subtract} alt='' />
                   </button>
-                  <div>{item.cartItemQuantity}</div>
+                  <div>{item.quantity}</div>
                   <button
                     onClick={() => dispatch(increaseCount(item.uid))}
                     className='countBtn addItem'
@@ -91,11 +90,8 @@ function Cart() {
                 </div>
                 <div className='itemTotalPrice'>
                   $
-                  {cartItems.find((e) => e.uid === item.uid)
-                    ? (
-                        item.price *
-                        cartItems.find((e) => e.uid === item.uid).quantity
-                      ).toFixed(2)
+                  {inventoryFind
+                    ? (inventoryFind.price * item.quantity).toFixed(2)
                     : ''}
                 </div>
               </div>
@@ -103,7 +99,6 @@ function Cart() {
               <button
                 onClick={() => {
                   dispatch(removeItem(item.uid));
-                  console.log('Cart: ', cart);
                 }}
                 className='remove'
               >
@@ -126,13 +121,26 @@ function Cart() {
             <span>Subtotal</span>
             <span>${cartItemTotal.toFixed(2)}</span>
           </div>
+          <div className='discount'>
+            <span>Discount</span>
+            <span>$0</span>
+          </div>
+          <div className='shipping'>
+            <span>Shipping</span>
+            <span>Free</span>
+          </div>
           <div className='tax'>
             <span>Tax</span>
             <span>Calculated at checkout</span>
           </div>
+          <div className='total'>
+            <span>Estimated Total</span>
+            <span>${cartItemTotal.toFixed(2)}</span>
+          </div>
         </div>
+        <button className='checkOut'>Check Out</button>
       </div>
-    </>
+    </div>
   );
 }
 

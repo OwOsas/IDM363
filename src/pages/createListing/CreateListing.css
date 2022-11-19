@@ -1,1 +1,6 @@
-/*# sourceMappingURL=CreateListing.css.map */
+@import url("https://fonts.googleapis.com/css2?family=Share+Tech&display=swap");
+.container .dataFill {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}/*# sourceMappingURL=CreateListing.css.map */

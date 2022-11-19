@@ -1,0 +1,86 @@
+@import url("https://fonts.googleapis.com/css2?family=Share+Tech&display=swap");
+.itemCard {
+  transition: 0.3s;
+  padding: 1rem;
+  max-width: 300px;
+  min-width: 200px;
+  max-height: 450px;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 3/4;
+  cursor: default;
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.itemCard * {
+  font-family: "Share Tech", sans-serif;
+}
+.itemCard .itemImage {
+  position: relative;
+  overflow: hidden;
+  text-align: start;
+  height: 100%;
+  max-height: 325px;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.itemCard .itemImage img {
+  height: 300px;
+  width: 100%;
+}
+.itemCard .itemName {
+  font-size: 1.25rem;
+  text-align: start;
+  color: black;
+  height: 3rem;
+  overflow: hidden;
+}
+.itemCard .itemName:hover {
+  color: grey;
+}
+.itemCard .prices {
+  font-size: 1.5rem;
+  display: flex;
+  gap: 0.25rem;
+  color: black;
+}
+.itemCard .prices .currentPrice {
+  font-size: 1.5rem;
+}
+.itemCard .prices .priceDigit {
+  font-size: 0.875rem;
+  vertical-align: top;
+}
+.itemCard .prices .originalPrice {
+  color: rgb(157, 157, 157);
+  text-decoration: line-through;
+}
+.itemCard .addToCart {
+  padding: 0.25rem 2rem;
+  background-color: black;
+  transition: 0.3s;
+}
+.itemCard .addToCart:hover {
+  background-color: grey;
+}
+
+@media only screen and (max-width: 500px) {
+  .Card {
+    margin: 0 !important;
+  }
+  .itemCard {
+    width: 100%;
+    max-width: 325px;
+  }
+  .itemName {
+    font-size: 0.9rem;
+  }
+  .prices * {
+    font-size: 0.8rem;
+  }
+}/*# sourceMappingURL=cartItemCard.css.map */

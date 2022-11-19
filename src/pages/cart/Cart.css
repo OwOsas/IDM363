@@ -1,8 +1,21 @@
 @import url("https://fonts.googleapis.com/css2?family=Share+Tech&display=swap");
+.pageContainer {
+  display: grid;
+  grid-template-columns: 4fr 2fr;
+  padding: 2rem;
+  gap: 1.5rem;
+}
+
 .cart {
   container-type: inline-size;
   width: 100%;
-  padding: 2rem;
+}
+.cart * {
+  font-family: "Share Tech", sans-serif;
+}
+.cart > h1 {
+  height: 2rem;
+  margin-bottom: 0.5rem;
 }
 .cart .cartItem {
   background-color: white;
@@ -14,9 +27,6 @@
   padding: 1.25rem;
   gap: 1rem;
   align-content: center;
-}
-.cart .cartItem * {
-  font-family: "Share Tech", sans-serif;
 }
 .cart .cartItem .imgContainer {
   display: flex;
@@ -74,10 +84,57 @@
   background-color: #bd1f1f;
 }
 
+.summary {
+  container-type: inline-size;
+  width: 100%;
+}
+.summary * {
+  font-family: "Share Tech", sans-serif;
+}
+.summary .summaryHeader {
+  height: 2rem;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+.summary .summaryHeader h1 {
+  font-size: 1.5rem;
+}
+.summary .priceBreakdown {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  background-color: white;
+  padding: 1rem;
+}
+.summary .priceBreakdown > * {
+  display: flex;
+  justify-content: space-between;
+}
+.summary .priceBreakdown .total {
+  font-size: 1.25rem;
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+  background-color: lightgrey;
+}
+.summary .checkOut {
+  background-color: rgb(41, 41, 41);
+  width: 100%;
+  font-size: 1.5rem;
+  color: white;
+  padding: 0.5rem;
+  margin-top: 1rem;
+  transition: 0.3s;
+}
+.summary .checkOut:hover {
+  background-color: rgb(55, 55, 55);
+}
+.summary .checkOut:active {
+  background-color: rgb(22, 22, 22);
+}
+
 @container (max-width: 450px) {
-  .cart {
-    padding: 1rem;
-  }
   .cart .cartItem {
     padding: 0.75rem;
     grid-template-columns: 72px 1fr 1fr 24px;
@@ -111,5 +168,15 @@
   }
   .cart .cartItem .imgContainer {
     display: none;
+  }
+}
+@media (max-width: 800px) {
+  .pageContainer {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 500px) {
+  .pageContainer {
+    padding: 1rem;
   }
 }/*# sourceMappingURL=Cart.css.map */
