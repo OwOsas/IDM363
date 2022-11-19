@@ -1,1 +1,24 @@
-/*# sourceMappingURL=Detail.css.map */
+.tags {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0.75rem 0.5rem;
+  padding: 1rem;
+  justify-content: center;
+  height: 100%;
+  align-content: center;
+  width: 210vw;
+}
+.tags .tag {
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  font-size: 0.85rem;
+  background-color: rgb(212, 212, 212);
+}
+
+.tagContainer {
+  position: relative;
+  width: 100vw;
+  overflow: scroll;
+  height: 85vh;
+}/*# sourceMappingURL=Detail.css.map */

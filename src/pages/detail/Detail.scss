@@ -1,8 +1,26 @@
-// button {
-//   padding: 0.5rem;
-//   border: 1px black solid;
-//   margin: 1rem;
-//   &:active {
-//     background-color: grey;
-//   }
-// }
+.tags {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0.75rem 0.5rem;
+  padding: 1rem;
+  justify-content: center;
+  height: 100%;
+  align-content: center;
+
+  width: 210vw;
+
+  .tag {
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+    font-size: 0.85rem;
+    background-color: rgb(212, 212, 212);
+  }
+}
+
+.tagContainer {
+  position: relative;
+  width: 100vw;
+  overflow: scroll;
+  height: 85vh;
+}

@@ -18,12 +18,12 @@ function CreateListing() {
 
 export default CreateListing;
 
-async function pushListing(itemName, price, quantity) {
+async function pushListing(itemName, price, stock) {
   const time = Timestamp.fromMillis(Date.now());
   await addDoc(collection(db, 'inventory'), {
     itemName: itemName,
     price: price,
-    quantity: quantity,
+    stock: stock,
     createdAt: Timestamp.fromMillis(Date.now()),
   });
 }

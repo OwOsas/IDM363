@@ -44,7 +44,9 @@ export const cartSlice = createSlice({
       state.cartItems.map((item, index) => {
         if (item.uid === actions.payload) {
           if (state.cartItems[index].quantity === 1) {
-            return state.cartItems.splice(index, 1);
+            return (state.cartItems = state.cartItems.filter(
+              (e) => e.uid !== actions.payload
+            ));
           } else {
             return (state.cartItems[index] = {
               ...state.cartItems[index],
@@ -68,10 +70,15 @@ export const cartSlice = createSlice({
         }
       });
     },
+    removeItem: (state, actions) => {
+      state.cartItems = state.cartItems.filter(
+        (e) => e.uid !== actions.payload
+      );
+    },
   },
 });
 
-export const { addItem, increaseCount, decreaseCount, setCount } =
+export const { addItem, increaseCount, decreaseCount, setCount, removeItem } =
   cartSlice.actions;
 
 export default cartSlice.reducer;

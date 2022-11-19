@@ -1,8 +1,137 @@
+@import '../../style/style_sheet';
+
 .cart {
+  container-type: inline-size;
+  width: 100%;
+  padding: 2rem;
+
+  .cartItem {
+    background-color: white;
+    margin-bottom: 1rem;
+
+    width: 100%;
+    display: grid;
+    grid-template-columns: 72px 5fr 1.5fr 24px;
+    flex-direction: row;
+    padding: 1.25rem;
+    gap: 1rem;
+
+    align-content: center;
+
+    * {
+      font-family: $font_primary;
+    }
+    .imgContainer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .itemImg {
+        background-size: cover;
+        background-position: center;
+
+        height: 72px;
+        width: 72px;
+      }
+    }
+
+    .itemDetail {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      .itemName {
+        font-size: 1.5rem;
+      }
+      .itemUnitPrice {
+        font-size: 1rem;
+      }
+    }
+
+    .itemTotal {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      justify-content: space-between;
+      align-items: flex-end;
+
+      .itemCount {
+        display: flex;
+        gap: 0.75rem;
+        align-items: center;
+
+        border: 1px black solid;
+        border-radius: 2px;
+        padding: 2px 0.5rem;
+
+        .countBtn {
+          height: 1em;
+          width: 1em;
+          img {
+            height: 100%;
+            width: 100%;
+          }
+        }
+      }
+      .itemTotalPrice {
+        font-size: 1.5rem;
+        text-align: end;
+      }
+    }
+
+    .remove {
+      background-color: #b50000;
+
+      &:hover {
+        background-color: #bd1f1f;
+      }
+    }
+  }
 }
 
-.countBtn {
-  height: 1em;
-  width: 1em;
-  background-color: red;
+@container (max-width: 450px) {
+  .cart {
+    padding: 1rem;
+    .cartItem {
+      padding: 0.75rem;
+      grid-template-columns: 72px 1fr 1fr 24px;
+      grid-template-areas:
+        'img title title remove'
+        'img total total remove';
+
+      .imgContainer {
+        grid-area: img;
+      }
+
+      .itemDetail {
+        grid-area: title;
+        flex-direction: row;
+        align-items: center;
+        .itemName {
+          font-size: 1.35rem;
+        }
+      }
+
+      .itemTotal {
+        grid-area: total;
+        flex-direction: row;
+        align-items: center;
+      }
+      .remove {
+        grid-area: remove;
+      }
+    }
+  }
+}
+
+@container (max-width: 300px) {
+  .cart {
+    .cartItem {
+      grid-template-columns: 1fr 24px;
+      grid-template-rows: 1fr 1fr;
+      grid-template-areas: 'title remove' 'total remove';
+      .imgContainer {
+        display: none;
+      }
+    }
+  }
 }

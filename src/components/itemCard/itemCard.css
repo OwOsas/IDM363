@@ -2,8 +2,9 @@
 .itemCard {
   transition: 0.3s;
   padding: 1rem;
-  max-width: 350px;
+  max-width: 300px;
   min-width: 200px;
+  max-height: 450px;
   width: 100%;
   height: 100%;
   aspect-ratio: 3/4;
@@ -68,13 +69,13 @@
   background-color: grey;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 500px) {
   .Card {
     margin: 0 !important;
   }
   .itemCard {
     width: 100%;
-    max-width: 350px;
+    max-width: 325px;
   }
   .itemName {
     font-size: 0.9rem;

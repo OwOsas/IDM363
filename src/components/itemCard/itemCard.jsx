@@ -62,13 +62,12 @@ ItemCard.PropType = {
 
 function getNumber(number) {
   number = Number(number);
-  var digit = Math.floor(number.toFixed(3) * 100) % 100;
   number = Math.floor(number);
   return number;
 }
 
 function getDigit(number) {
   number = Number(number);
-  var digit = Math.floor(number.toFixed(3) * 1000) % 1000;
+  var digit = Math.floor(number.toFixed(2) * 100) % 100;
   return digit;
 }

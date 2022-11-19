@@ -1,5 +1,115 @@
-.countBtn {
+@import url("https://fonts.googleapis.com/css2?family=Share+Tech&display=swap");
+.cart {
+  container-type: inline-size;
+  width: 100%;
+  padding: 2rem;
+}
+.cart .cartItem {
+  background-color: white;
+  margin-bottom: 1rem;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 72px 5fr 1.5fr 24px;
+  flex-direction: row;
+  padding: 1.25rem;
+  gap: 1rem;
+  align-content: center;
+}
+.cart .cartItem * {
+  font-family: "Share Tech", sans-serif;
+}
+.cart .cartItem .imgContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cart .cartItem .imgContainer .itemImg {
+  background-size: cover;
+  background-position: center;
+  height: 72px;
+  width: 72px;
+}
+.cart .cartItem .itemDetail {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.cart .cartItem .itemDetail .itemName {
+  font-size: 1.5rem;
+}
+.cart .cartItem .itemDetail .itemUnitPrice {
+  font-size: 1rem;
+}
+.cart .cartItem .itemTotal {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.cart .cartItem .itemTotal .itemCount {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  border: 1px black solid;
+  border-radius: 2px;
+  padding: 2px 0.5rem;
+}
+.cart .cartItem .itemTotal .itemCount .countBtn {
   height: 1em;
   width: 1em;
-  background-color: red;
+}
+.cart .cartItem .itemTotal .itemCount .countBtn img {
+  height: 100%;
+  width: 100%;
+}
+.cart .cartItem .itemTotal .itemTotalPrice {
+  font-size: 1.5rem;
+  text-align: end;
+}
+.cart .cartItem .remove {
+  background-color: #b50000;
+}
+.cart .cartItem .remove:hover {
+  background-color: #bd1f1f;
+}
+
+@container (max-width: 450px) {
+  .cart {
+    padding: 1rem;
+  }
+  .cart .cartItem {
+    padding: 0.75rem;
+    grid-template-columns: 72px 1fr 1fr 24px;
+    grid-template-areas: "img title title remove" "img total total remove";
+  }
+  .cart .cartItem .imgContainer {
+    grid-area: img;
+  }
+  .cart .cartItem .itemDetail {
+    grid-area: title;
+    flex-direction: row;
+    align-items: center;
+  }
+  .cart .cartItem .itemDetail .itemName {
+    font-size: 1.35rem;
+  }
+  .cart .cartItem .itemTotal {
+    grid-area: total;
+    flex-direction: row;
+    align-items: center;
+  }
+  .cart .cartItem .remove {
+    grid-area: remove;
+  }
+}
+@container (max-width: 300px) {
+  .cart .cartItem {
+    grid-template-columns: 1fr 24px;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: "title remove" "total remove";
+  }
+  .cart .cartItem .imgContainer {
+    display: none;
+  }
 }/*# sourceMappingURL=Cart.css.map */
