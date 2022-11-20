@@ -1,9 +1,36 @@
 @import '../../style/style_sheet';
 
 .container {
+  * {
+    font-family: $font_primary;
+  }
   .dataFill {
     display: flex;
     flex-direction: column;
     padding: 1rem;
+
+    label {
+      font-size: 1.2rem;
+    }
+    input,
+    textarea {
+      padding: 0.25rem 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+  }
+}
+
+.upload {
+  font-size: 1.25rem;
+  padding: 0.5rem;
+  background-color: $clr_offBlack;
+  color: white;
+  margin: 0.5rem 0;
+  &:hover {
+    background-color: rgb(55, 55, 55);
+  }
+
+  &:active {
+    background-color: rgb(22, 22, 22);
   }
 }

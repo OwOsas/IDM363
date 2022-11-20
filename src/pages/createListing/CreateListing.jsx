@@ -5,20 +5,29 @@ import { db } from '../../firebase/firebase-config';
 import PropTypes from 'prop-types';
 
 function CreateListing() {
+  const [img, setImg] = useState();
+  const [name, setName] = useState('');
+  const [price, setPrice] = useState();
+  const [stock, setStock] = useState();
+
   return (
     <div className='container'>
       <div className='preview'></div>
       <div className='dataFill'>
         <label htmlFor=''>Item Name: </label>
-        <input className='itemName'></input>
+        <input onchange required='required' className='itemName'></input>
         <label htmlFor=''>Unit Price: </label>
         <input className='unitPrice'></input>
         <label htmlFor=''>Stock Quantity: </label>
         <input className='stock'></input>
+        <label htmlFor=''>Description: </label>
+        <textarea className='description'></textarea>
 
-        <button onClick={() => pushListing('Testing 002', 22.22, 10)}>
-          {' '}
-          push{' '}
+        <button
+          className='upload'
+          onClick={() => pushListing('Testing 002', 22.22, 10)}
+        >
+          Upload
         </button>
       </div>
     </div>
@@ -28,7 +37,6 @@ function CreateListing() {
 export default CreateListing;
 
 async function pushListing(itemName, price, stock) {
-  const time = Timestamp.fromMillis(Date.now());
   await addDoc(collection(db, 'inventory'), {
     itemName: itemName,
     price: price,
