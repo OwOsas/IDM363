@@ -13,7 +13,7 @@ function CardContainer({ inventory }) {
             key={index}
             uid={item.uid}
             itemName={item.itemName}
-            itemImage={test_img}
+            itemImage={item.imgURL}
             price={item.price}
           ></ItemCard>
         );

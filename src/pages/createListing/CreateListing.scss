@@ -4,9 +4,21 @@
   * {
     font-family: $font_primary;
   }
+
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  justify-items: center;
+
+  .preview {
+    padding: 1rem;
+    width: 100%;
+  }
+
   .dataFill {
+    width: 100%;
     display: flex;
     flex-direction: column;
+
     padding: 1rem;
 
     label {
@@ -16,6 +28,7 @@
     textarea {
       padding: 0.25rem 0.5rem;
       margin-bottom: 0.5rem;
+      font-size: 1.15rem;
     }
   }
 }
@@ -32,5 +45,79 @@
 
   &:active {
     background-color: rgb(22, 22, 22);
+  }
+}
+
+input[type='file'] {
+  display: none;
+}
+
+#itemImgLabel {
+  width: 100%;
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .imgPrev {
+    width: 100%;
+    aspect-ratio: 4/5;
+    border: 1px $clr_offBlack solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+    overflow: hidden;
+
+    img {
+      max-width: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .imgUploadBtn {
+    width: 100%;
+    background-color: $clr_offBlack;
+    color: white;
+    padding: 0.5rem;
+    font-size: 1rem;
+    text-align: center;
+    cursor: pointer;
+
+    &:hover {
+      background-color: rgb(55, 55, 55);
+    }
+
+    &:active {
+      background-color: rgb(22, 22, 22);
+    }
+  }
+
+  .plus {
+    position: relative;
+    --icon-size: 3rem;
+    height: var(--icon-size);
+    width: var(--icon-size);
+    &::before,
+    &::after {
+      content: '';
+      display: block;
+      height: var(--icon-size);
+      width: 5px;
+      border-radius: 5px;
+      background-color: $clr_lightGrey;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+    }
+
+    &::before {
+      transform: translate(-50%, -50%);
+    }
+    &::after {
+      transform: translate(-50%, -50%) rotate(90deg);
+    }
   }
 }

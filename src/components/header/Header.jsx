@@ -26,7 +26,7 @@ const Header = ({ logo }) => {
           </button>
         </div> */}
         <ul>
-          <HeaderLink to='/LogIn'>Log In / Sign Up</HeaderLink>
+          <HeaderLink to='/LogIn'>Create Listing</HeaderLink>
           <HeaderLink to='/Cart'>
             Cart
             <span className='cartIcon'>

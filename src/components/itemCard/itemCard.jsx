@@ -5,6 +5,7 @@ import PropType from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { addItem } from '../../redux/cartSlice';
 import { test_img } from '../../img';
+import { edit } from '../../img/icons';
 
 function ItemCard({ uid, itemImage, itemName, price }) {
   //Get original price digit and without digit
@@ -43,12 +44,19 @@ function ItemCard({ uid, itemImage, itemName, price }) {
         <span>|</span>
         <span className='discount'>{discount}% Off</span> */}
       </div>
-      <button
-        onClick={() => dispatch(addItem(uid))}
-        className='buttonStyle addToCart'
-      >
-        Add to Cart
-      </button>
+      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+        <button
+          onClick={() => {
+            dispatch(addItem(uid));
+          }}
+          className='buttonStyle addToCart'
+        >
+          Add to Cart
+        </button>
+        <Link to={'/Listing/' + uid}>
+          <img src={edit} alt='' />
+        </Link>
+      </div>
     </div>
   );
 }
