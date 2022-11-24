@@ -18,6 +18,7 @@ const Header = ({ logo }) => {
       <div className='header'>
         <Link className='logo' to='/'>
           <img src={logo} alt='' />
+          <p>SHARD</p>
         </Link>
         {/* <div className='searchBar'>
           <input type='text' placeholder='Search...' />
@@ -26,7 +27,7 @@ const Header = ({ logo }) => {
           </button>
         </div> */}
         <ul>
-          <HeaderLink to='/LogIn'>Create Listing</HeaderLink>
+          <HeaderLink to='/Listing/create'>Create Listing</HeaderLink>
           <HeaderLink to='/Cart'>
             Cart
             <span className='cartIcon'>

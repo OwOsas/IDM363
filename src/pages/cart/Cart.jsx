@@ -10,9 +10,13 @@ import {
   removeItem,
   increaseCount,
   decreaseCount,
+  clearCart,
 } from '../../redux/cartSlice';
+import { useNavigate } from 'react-router-dom';
 
 function Cart() {
+  document.title = 'Cart';
+  const navigate = useNavigate();
   const [inventory, setInventory] = useState([]);
 
   function getInventory() {
@@ -33,7 +37,7 @@ function Cart() {
 
   useEffect(() => {
     getInventory();
-  }, []);
+  }, [inventory]);
 
   const { cartItems } = useSelector((state) => state.cart);
   const dispatch = useDispatch();
@@ -58,10 +62,16 @@ function Cart() {
           return (
             <div className='cartItem' key={index}>
               <div className='imgContainer'>
-                <div
-                  className='itemImg'
-                  style={{ backgroundImage: 'url(' + test_img + ')' }}
-                ></div>
+                {inventoryFind ? (
+                  <div
+                    className='itemImg'
+                    style={{
+                      backgroundImage: 'url(' + inventoryFind.imgURL + ')',
+                    }}
+                  ></div>
+                ) : (
+                  <div className='itemImg'></div>
+                )}
               </div>
 
               <div className='itemDetail'>
@@ -138,7 +148,15 @@ function Cart() {
             <span>${cartItemTotal.toFixed(2)}</span>
           </div>
         </div>
-        <button className='checkOut'>Check Out</button>
+        <button
+          onClick={() => {
+            dispatch(clearCart());
+            navigate('/');
+          }}
+          className='checkOut'
+        >
+          Check Out
+        </button>
       </div>
     </div>
   );

@@ -4,9 +4,9 @@ import './Home.css';
 import { db } from '../../firebase/firebase-config';
 import { collection, onSnapshot } from 'firebase/firestore';
 import { useEffect, useState } from 'react';
-import test from '../../img/test-img.png';
 
 function Home() {
+  document.title = 'Home';
   const [inventory, setInventory] = useState([]);
 
   function getInventory() {
@@ -25,11 +25,12 @@ function Home() {
     );
   }
 
-  console.log(inventory);
-
   useEffect(() => {
     getInventory();
   }, []);
+
+  console.log(inventory);
+
   return (
     <div className='Home'>
       <CardContainer inventory={inventory}></CardContainer>

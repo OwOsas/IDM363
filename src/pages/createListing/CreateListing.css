@@ -3,19 +3,19 @@
   display: grid;
   grid-template-columns: 1fr 3fr;
   justify-items: center;
+  padding: 5vh 5vw;
+  gap: 2.5vw;
 }
 .container * {
   font-family: "Share Tech", sans-serif;
 }
 .container .preview {
-  padding: 1rem;
   width: 100%;
 }
 .container .dataFill {
   width: 100%;
   display: flex;
   flex-direction: column;
-  padding: 1rem;
 }
 .container .dataFill label {
   font-size: 1.2rem;
@@ -25,6 +25,7 @@
   padding: 0.25rem 0.5rem;
   margin-bottom: 0.5rem;
   font-size: 1.15rem;
+  width: 100%;
 }
 
 .upload {
@@ -105,4 +106,22 @@ input[type=file] {
 }
 #itemImgLabel .plus::after {
   transform: translate(-50%, -50%) rotate(90deg);
+}
+
+@media (max-width: 700px) {
+  .container {
+    grid-template-columns: 1fr 2fr;
+  }
+}
+@media (max-width: 500px) {
+  .container {
+    grid-template-columns: 1fr;
+    justify-content: center;
+  }
+  .container .preview {
+    max-width: 250px;
+  }
+  .container .dataFill {
+    max-width: 100%;
+  }
 }/*# sourceMappingURL=CreateListing.css.map */

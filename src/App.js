@@ -1,6 +1,6 @@
 import { Header, Footer } from './components';
 import './index.css';
-import logo from './img/test-img.png';
+import logo from './img/logo.png';
 import { Home, Cart, CreateListing, Detail } from './pages';
 import { Route, Routes } from 'react-router-dom';
 
@@ -16,7 +16,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/Cart' element={<Cart />} />
-          <Route path='/LogIn' element={<CreateListing />} />
+          <Route path='/Listing/:uid' element={<CreateListing />} />
           <Route path='/Detail/:uid' element={<Detail />} />
         </Routes>
       </div>

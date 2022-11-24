@@ -1,9 +1,10 @@
 import { useRef, useEffect, useState } from 'react';
 
-const CloudinaryUploadWidget = ({ imgRef }) => {
+const CloudinaryUploadWidget = ({ defaultImg, imgRef }) => {
   const cloudinaryRef = useRef();
   const widgetRef = useRef();
-  const [imgPrev, setImgPrev] = useState(null);
+  const [imgPrev, setImgPrev] = useState();
+  useEffect(() => setImgPrev(defaultImg), [defaultImg]);
   useEffect(() => {
     cloudinaryRef.current = window.cloudinary;
     widgetRef.current = cloudinaryRef.current.createUploadWidget(
@@ -20,7 +21,7 @@ const CloudinaryUploadWidget = ({ imgRef }) => {
         }
       }
     );
-  });
+  }, []);
   return (
     <div id='itemImgLabel'>
       <button className='imgPrev' onClick={() => widgetRef.current.open()}>
@@ -30,7 +31,6 @@ const CloudinaryUploadWidget = ({ imgRef }) => {
           <img src={imgPrev} alt='' />
         )}
       </button>
-
       <button className='imgUploadBtn' onClick={() => widgetRef.current.open()}>
         Upload Image
       </button>

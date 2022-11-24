@@ -11,11 +11,16 @@ header .header {
   padding: 1rem;
 }
 header .header .logo {
-  display: block;
+  display: flex;
+  align-items: center;
   height: 3rem;
 }
 header .header .logo img {
   height: 100%;
+}
+header .header .logo p {
+  font-family: "Share Tech", sans-serif;
+  font-size: 1.5rem;
 }
 header .header .searchBar {
   position: relative;
