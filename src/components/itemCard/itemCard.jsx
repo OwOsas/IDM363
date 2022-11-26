@@ -21,21 +21,21 @@ function ItemCard({ uid, itemImage, itemName, price }) {
 
   return (
     <div className='itemCard'>
+      {/* to={'/Detail/' + uid} */}
       <Link
         className='itemImage'
-        to={'/Detail/' + uid}
         style={{ backgroundImage: 'url(' + itemImage + ')' }}
       >
         {/* <img src={itemImage} alt='' /> */}
       </Link>
 
-      <Link to={'/Detail/' + uid} className='itemName'>
-        {itemName}
-      </Link>
+      <Link className='itemName'>{itemName}</Link>
       <div className='prices'>
         <span className='currentPriceContainer'>
           <span className='currentPrice'>${price}</span>
-          <span className='priceDigit'>{priceDigit}</span>
+          <span className='priceDigit'>
+            {priceDigit.toString().padStart(2, 0)}
+          </span>
         </span>
         {/* <span className='originalPrice'>
           <span className='currentPrice'>${originalPrice}</span>
@@ -53,7 +53,7 @@ function ItemCard({ uid, itemImage, itemName, price }) {
         >
           Add to Cart
         </button>
-        <Link to={'/Listing/' + uid}>
+        <Link style={{ cursor: 'pointer' }} to={'/Listing/' + uid}>
           <img src={edit} alt='' />
         </Link>
       </div>

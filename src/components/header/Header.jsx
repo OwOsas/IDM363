@@ -18,7 +18,7 @@ const Header = ({ logo }) => {
       <div className='header'>
         <Link className='logo' to='/'>
           <img src={logo} alt='' />
-          <p>SHARD</p>
+          <p>TECNOGEM</p>
         </Link>
         {/* <div className='searchBar'>
           <input type='text' placeholder='Search...' />

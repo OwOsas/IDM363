@@ -33,18 +33,20 @@ function CreateListing() {
   const [stock, setStock] = useState(0);
   const [description, setDescription] = useState('');
   useEffect(() => {
-    setImg(item.imgURL);
-    setName(item.itemName);
-    setPrice(item.price);
-    setStock(item.stock);
-    setDescription(item.description);
-  }, [item]);
+    if (uid && uid !== 'create') {
+      setImg(item.imgURL);
+      setName(item.itemName);
+      setPrice(item.price);
+      setStock(item.stock);
+      setDescription(item.description);
+    }
+  }, [item, uid]);
 
   useEffect(() => {
     if (uid && uid !== 'create') {
       getItem(uid);
     }
-  }, []);
+  }, [uid]);
   console.log('item: ', item);
 
   const imgRef = (e) => setImg(e);
@@ -110,7 +112,6 @@ function CreateListing() {
         />
       </div>
       <div className='dataFill'>
-        <div>{uid && uid === 'create' ? 'create' : uid} </div>
         <label htmlFor=''>Item Name: </label>
         <input
           onChange={(e) => setName(e.target.value)}

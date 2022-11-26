@@ -21,7 +21,7 @@ const CloudinaryUploadWidget = ({ defaultImg, imgRef }) => {
         }
       }
     );
-  }, []);
+  }, [imgPrev, imgRef]);
   return (
     <div id='itemImgLabel'>
       <button className='imgPrev' onClick={() => widgetRef.current.open()}>
