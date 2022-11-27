@@ -4,7 +4,6 @@ import { db } from '../../firebase/firebase-config';
 import { collection, onSnapshot } from 'firebase/firestore';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { test_img } from '../../img';
 import { plus, subtract, trash } from '../../img/icons';
 import {
   removeItem,
@@ -51,6 +50,7 @@ function Cart() {
     if (inventoryFind) {
       cartItemTotal += inventoryFind.price * item.quantity;
     }
+    return cartItemTotal;
   });
 
   return (

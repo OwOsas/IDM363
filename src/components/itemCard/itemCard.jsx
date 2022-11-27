@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import PropType from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { addItem } from '../../redux/cartSlice';
-import { test_img } from '../../img';
 import { edit } from '../../img/icons';
 
 function ItemCard({ uid, itemImage, itemName, price }) {
