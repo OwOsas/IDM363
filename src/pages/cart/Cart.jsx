@@ -56,7 +56,7 @@ function Cart() {
     }
     return cartItemTotal;
   });
-
+  console.log(cartItemQuantity);
   return (
     <div className='pageContainer'>
       <div className='cart'>
@@ -153,15 +153,19 @@ function Cart() {
             <span>${cartItemTotal.toFixed(2)}</span>
           </div>
         </div>
-        <button
-          onClick={() => {
-            dispatch(clearCart());
-            navigate('/');
-          }}
-          className='checkOut'
-        >
-          Check Out
-        </button>
+        {cartItemQuantity > 0 ? (
+          <button
+            onClick={() => {
+              dispatch(clearCart());
+              navigate('/');
+            }}
+            className='checkOut'
+          >
+            Check Out
+          </button>
+        ) : (
+          ''
+        )}
       </div>
     </div>
   );
