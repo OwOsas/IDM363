@@ -19,6 +19,7 @@ function CreateListing() {
   const { uid } = useParams();
   const [item, setItem] = useState({});
 
+  //get item form redux
   function getItem(uid) {
     const itemRef = doc(db, 'inventory', uid);
     onSnapshot(itemRef, (doc) => {
@@ -32,6 +33,8 @@ function CreateListing() {
   const [price, setPrice] = useState(0);
   const [stock, setStock] = useState(0);
   const [description, setDescription] = useState('');
+
+  //set content to item content if modifying
   useEffect(() => {
     if (uid && uid !== 'create') {
       setImg(item.imgURL);
@@ -93,15 +96,6 @@ function CreateListing() {
     imgURL: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
   };
-
-  // useEffect(() => {
-  //   if (img) {
-  //     console.log(img);
-  //     Array.from(img).map((i) => setImgPrev(URL.createObjectURL(i)));
-  //   } else {
-  //     setImgPrev(null);
-  //   }
-  // }, [img]);
 
   return (
     <div className='container'>

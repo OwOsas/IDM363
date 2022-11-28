@@ -9,6 +9,7 @@ function Home() {
   document.title = 'Home';
   const [inventory, setInventory] = useState([]);
 
+  //get inventory from firestore
   function getInventory() {
     const inventoryRef = collection(db, 'inventory');
     const itemArray = [];

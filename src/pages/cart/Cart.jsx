@@ -18,6 +18,7 @@ function Cart() {
   const navigate = useNavigate();
   const [inventory, setInventory] = useState([]);
 
+  //get inventory from firebase
   function getInventory() {
     const inventoryRef = collection(db, 'inventory');
     const itemArray = [];
@@ -34,15 +35,18 @@ function Cart() {
     );
   }
 
+  //update inventory on load
   useEffect(() => {
     getInventory();
-  }, [inventory]);
+  }, []);
 
+  //get cart items from redux
   const { cartItems } = useSelector((state) => state.cart);
   const dispatch = useDispatch();
   var cartItemQuantity = 0;
   var cartItemTotal = 0;
 
+  //get cart total
   cartItems.map((item) => {
     cartItemQuantity += item.quantity;
 
@@ -57,6 +61,7 @@ function Cart() {
     <div className='pageContainer'>
       <div className='cart'>
         <h1>Cart</h1>
+        {/* generate cart item card */}
         {cartItems.map((item, index) => {
           var inventoryFind = inventory.find((e) => e.uid === item.uid);
           return (

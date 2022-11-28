@@ -11,6 +11,7 @@ function ItemCard({ uid, itemImage, itemName, price }) {
   var priceDigit = getDigit(price);
   price = getNumber(price);
 
+  //Limit the text to two lines, can be optimized by using CSS instead
   if (itemName.length > 47) {
     itemName = itemName.substring(0, 47);
     itemName += '...';

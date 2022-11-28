@@ -1,10 +1,11 @@
 import React from 'react';
 import './header.css';
-import { magnifier, arrow, cart } from '../../img/icons';
+import { cart } from '../../img/icons';
 import { Link, useMatch, useResolvedPath } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 const Header = ({ logo }) => {
+  //calculate the amount of items in the cart, if > 99, show "99+"
   const { cartItems } = useSelector((state) => state.cart);
   var cartCount = 0;
   cartItems.map((item) => {
@@ -20,12 +21,6 @@ const Header = ({ logo }) => {
           <img src={logo} alt='' />
           <p>TECNOGEM</p>
         </Link>
-        {/* <div className='searchBar'>
-          <input type='text' placeholder='Search...' />
-          <button>
-            <img src={magnifier} alt='' />
-          </button>
-        </div> */}
         <ul>
           <HeaderLink to='/Listing/create'>Create Listing</HeaderLink>
           <HeaderLink to='/Cart'>
@@ -48,6 +43,7 @@ const Header = ({ logo }) => {
 
 export default Header;
 
+//A function that can determine if the link is current page
 function HeaderLink({ to, onClick, children, isBurgerActive, ...porps }) {
   const resolvedPath = useResolvedPath(to);
   const isCurrent = useMatch({ path: resolvedPath.pathname, end: true });

@@ -5,6 +5,7 @@ import { db } from '../../firebase/firebase-config';
 import { doc, onSnapshot } from 'firebase/firestore';
 import { useEffect, useState } from 'react';
 
+//currently not active
 function Detail() {
   const { uid } = useParams();
   const [page, setPage] = useState({});
