@@ -17,7 +17,14 @@ function CreateListing() {
   document.title = 'Listing';
 
   const { uid } = useParams();
-  const [item, setItem] = useState({});
+  const [item, setItem] = useState({
+    uid: uid,
+    imgURL: '',
+    itemName: '',
+    price: 0,
+    stock: 0,
+    description: '',
+  });
 
   //get item form redux
   function getItem(uid) {
@@ -27,24 +34,6 @@ function CreateListing() {
     });
   }
 
-  //Upload Prop
-  const [img, setImg] = useState('');
-  const [name, setName] = useState('');
-  const [price, setPrice] = useState(0);
-  const [stock, setStock] = useState(0);
-  const [description, setDescription] = useState('');
-
-  //set content to item content if modifying
-  useEffect(() => {
-    if (uid && uid !== 'create') {
-      setImg(item.imgURL);
-      setName(item.itemName);
-      setPrice(item.price);
-      setStock(item.stock);
-      setDescription(item.description);
-    }
-  }, [item, uid]);
-
   useEffect(() => {
     if (uid && uid !== 'create') {
       getItem(uid);
@@ -52,10 +41,8 @@ function CreateListing() {
   }, [uid]);
   console.log('item: ', item);
 
-  const imgRef = (e) => setImg(e);
+  const imgRef = (e) => setItem({ ...item, imgURL: e });
   const navigate = useNavigate();
-
-  console.log(img, name, price, stock, description);
 
   async function pushListing(itemName, price, stock, imgURL, description) {
     await addDoc(collection(db, 'inventory'), {
@@ -101,51 +88,62 @@ function CreateListing() {
     <div className='container'>
       <div className='preview'>
         <CloudinaryUploadWidget
-          defaultImg={uid && uid === 'create' ? null : img}
+          defaultImg={uid && uid === 'create' ? null : item.imgURL}
           imgRef={imgRef}
         />
       </div>
       <div className='dataFill'>
         <label htmlFor=''>Item Name: </label>
         <input
-          onChange={(e) => setName(e.target.value)}
+          onChange={(e) => setItem({ ...item, itemName: e.target.value })}
           type='text'
           required='required'
           id='itemName'
-          value={name}
+          value={item.itemName}
         ></input>
         <label htmlFor=''>Unit Price: </label>
         <input
-          onChange={(e) => setPrice(e.target.value)}
+          onChange={(e) => setItem({ ...item, price: e.target.value })}
           type='number'
           id='unitPrice'
-          value={price}
+          value={item.price}
         ></input>
         <label htmlFor=''>Stock Quantity: </label>
         <input
-          onChange={(e) => setStock(e.target.value)}
+          onChange={(e) => setItem({ ...item, stock: e.target.value })}
           type='number'
           id='stock'
-          value={stock}
+          value={item.stock}
         ></input>
         <label htmlFor=''>Description: </label>
         <textarea
-          onChange={(e) => setDescription(e.target.value)}
+          onChange={(e) => setItem({ ...item, description: e.target.value })}
           rows='5'
           cols='50'
           id='description'
-          value={description}
+          value={item.description}
         ></textarea>
 
         <button
           className='upload'
           onClick={() => {
             if (uid && uid === 'create') {
-              pushListing(name, price, stock, img, description);
+              pushListing(
+                item.itemName,
+                item.price,
+                item.stock,
+                item.imgURL,
+                item.description
+              );
             } else {
-              updateListing(name, price, stock, img, description);
+              updateListing(
+                item.itemName,
+                item.price,
+                item.stock,
+                item.imgURL,
+                item.description
+              );
             }
-            console.log(name, price, stock, description);
           }}
         >
           Upload

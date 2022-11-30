@@ -13,32 +13,9 @@ import {
 } from '../../redux/cartSlice';
 import { useNavigate } from 'react-router-dom';
 
-function Cart() {
+function Cart({ inventory }) {
   document.title = 'Cart';
   const navigate = useNavigate();
-  const [inventory, setInventory] = useState([]);
-
-  //get inventory from firebase
-  function getInventory() {
-    const inventoryRef = collection(db, 'inventory');
-    const itemArray = [];
-    onSnapshot(
-      inventoryRef,
-      (querySnapshot) => {
-        querySnapshot.forEach((doc) => {
-          // setInventory([...inventory, doc.data()]);
-          itemArray.push({ ...doc.data(), uid: doc.id });
-        });
-        setInventory(itemArray);
-      },
-      []
-    );
-  }
-
-  //update inventory on load
-  useEffect(() => {
-    getInventory();
-  }, []);
 
   //get cart items from redux
   const { cartItems } = useSelector((state) => state.cart);
