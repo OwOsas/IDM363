@@ -17,16 +17,12 @@ function Detail() {
     });
   }
 
-  console.log(page);
-
   useEffect(() => getItem(uid), []);
-
+  console.log('Page: ', page);
   return (
-    <>
-      <div className='itemImg'></div>
-      <h1 className='itemName'>{page.itemName}</h1>
-      <h2 className='itemPrice'>{page.price}</h2>
-    </>
+    <div className='container'>
+      {/* <div className='img' style={{ backgroundImage: "url(" + page.imgURL,")" }}></div> */}
+    </div>
   );
 }
 
