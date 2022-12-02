@@ -32,6 +32,7 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  cursor: pointer;
 }
 .itemCard .itemImage img {
   height: 300px;
@@ -43,6 +44,10 @@
   color: black;
   height: 3rem;
   overflow: hidden;
+  cursor: pointer;
+}
+.itemCard .itemName:hover {
+  color: grey;
 }
 .itemCard .prices {
   font-size: 1.5rem;
@@ -67,7 +72,7 @@
   transition: 0.3s;
 }
 .itemCard .addToCart:hover {
-  background-color: grey;
+  background-color: rgb(72, 72, 72);
 }
 
 @media only screen and (max-width: 500px) {

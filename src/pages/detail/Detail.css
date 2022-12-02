@@ -1,24 +1,128 @@
-.tags {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 0.75rem 0.5rem;
-  padding: 1rem;
-  justify-content: center;
-  height: 100%;
-  align-content: center;
-  width: 210vw;
-}
-.tags .tag {
-  padding: 0.5rem 1rem;
-  border-radius: 1rem;
-  font-size: 0.85rem;
-  background-color: rgb(212, 212, 212);
+@import url("https://fonts.googleapis.com/css2?family=Share+Tech&display=swap");
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Share Tech", sans-serif;
 }
 
-.tagContainer {
+html {
+  scroll-behavior: smooth;
+  background-color: rgb(237, 237, 237);
+}
+
+body {
   position: relative;
-  width: 100vw;
-  overflow: scroll;
-  height: 85vh;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+.buttonStyle {
+  background-color: black;
+  color: white;
+  border: none;
+  font-size: 1rem;
+  padding: 0.35rem;
+  align-self: flex-start;
+  cursor: pointer;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+
+ul,
+li {
+  text-decoration: none;
+  color: black;
+  list-style: none;
+}
+
+input:active, input:focus {
+  border: 1px black solid;
+  outline: none;
+}
+
+.detailContainer {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  min-height: 90vh;
+  align-items: center;
+  padding: 5vh 3vw;
+  gap: 2rem;
+}
+.detailContainer .img {
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  aspect-ratio: 4/3;
+}
+.detailContainer .itemInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+}
+.detailContainer .itemDetail {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.detailContainer .itemName {
+  font-size: 2.5rem;
+  text-transform: uppercase;
+}
+.detailContainer .price {
+  font-size: 1.75rem;
+}
+.detailContainer .description {
+  font-size: 1.1rem;
+}
+.detailContainer .shipping {
+  justify-self: center;
+  padding: 0.5rem;
+  border: 1px black solid;
+  border-inline: 0;
+}
+.detailContainer .shipping > * {
+  vertical-align: middle;
+}
+.detailContainer .shipping img {
+  margin-right: 1rem;
+}
+.detailContainer .shipping span {
+  font-size: 1.25rem;
+}
+.detailContainer .addToCart {
+  padding: 0.5rem 2rem;
+  background-color: black;
+  transition: 0.3s;
+  font-size: 1.25rem;
+  color: white;
+}
+.detailContainer .addToCart:hover {
+  background-color: rgb(72, 72, 72);
+}
+.detailContainer .description {
+  margin: 1rem 0;
+  border: 1px black solid;
+  padding: 0.5rem 0;
+  border-inline: 0;
+  border-inline: 0;
+}
+.detailContainer .description .descriptionTitle {
+  margin-bottom: 0.5rem;
+}
+.detailContainer .description p {
+  display: -webkit-box;
+  -webkit-line-clamp: 15;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }/*# sourceMappingURL=Detail.css.map */

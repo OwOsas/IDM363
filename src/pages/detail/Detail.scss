@@ -1,26 +1,87 @@
-.tags {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 0.75rem 0.5rem;
-  padding: 1rem;
-  justify-content: center;
-  height: 100%;
-  align-content: center;
+@import '../../style/style_sheet';
+@import '../../style/general';
+.detailContainer {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  min-height: 90vh;
+  align-items: center;
+  padding: 5vh 3vw;
+  gap: 2rem;
 
-  width: 210vw;
-
-  .tag {
-    padding: 0.5rem 1rem;
-    border-radius: 1rem;
-    font-size: 0.85rem;
-    background-color: rgb(212, 212, 212);
+  .img {
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    aspect-ratio: 4/3;
   }
-}
 
-.tagContainer {
-  position: relative;
-  width: 100vw;
-  overflow: scroll;
-  height: 85vh;
+  .itemInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+  }
+
+  .itemDetail {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .itemName {
+    font-size: 2.5rem;
+    text-transform: uppercase;
+  }
+
+  .price {
+    font-size: 1.75rem;
+  }
+  .description {
+    font-size: 1.1rem;
+  }
+
+  .shipping {
+    justify-self: center;
+    padding: 0.5rem;
+    border: 1px black solid;
+    border-inline: 0;
+    & > * {
+      vertical-align: middle;
+    }
+    img {
+      margin-right: 1rem;
+    }
+    span {
+      font-size: 1.25rem;
+    }
+  }
+
+  .addToCart {
+    padding: 0.5rem 2rem;
+    background-color: black;
+    transition: 0.3s;
+    font-size: 1.25rem;
+    color: white;
+
+    &:hover {
+      background-color: rgb(72, 72, 72);
+    }
+  }
+
+  .description {
+    margin: 1rem 0;
+    border: 1px black solid;
+    padding: 0.5rem 0;
+    border-inline: 0;
+    border-inline: 0;
+    .descriptionTitle {
+      margin-bottom: 0.5rem;
+    }
+    p {
+      display: -webkit-box;
+      -webkit-line-clamp: 15;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+  }
 }

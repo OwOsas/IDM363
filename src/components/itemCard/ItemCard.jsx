@@ -1,5 +1,5 @@
 import React from 'react';
-import './itemCard.css';
+import style from './itemCard.css';
 import { Link } from 'react-router-dom';
 import PropType from 'prop-types';
 import { useDispatch } from 'react-redux';

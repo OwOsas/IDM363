@@ -1,5 +1,5 @@
 import React from 'react';
-import './Cart.css';
+import style from './Cart.css';
 import { db } from '../../firebase/firebase-config';
 import { collection, onSnapshot } from 'firebase/firestore';
 import { useEffect, useState } from 'react';

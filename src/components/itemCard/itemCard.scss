@@ -42,6 +42,7 @@ $fontSize-review: 1rem;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    cursor: pointer;
     img {
       height: 300px;
       width: 100%;
@@ -53,10 +54,11 @@ $fontSize-review: 1rem;
     color: black;
     height: 3rem;
     overflow: hidden;
+    cursor: pointer;
 
-    // &:hover {
-    //   color: grey;
-    // }
+    &:hover {
+      color: grey;
+    }
   }
   .prices {
     font-size: $fontSize-price;
@@ -84,7 +86,7 @@ $fontSize-review: 1rem;
     transition: 0.3s;
 
     &:hover {
-      background-color: grey;
+      background-color: rgb(72, 72, 72);
     }
   }
 }

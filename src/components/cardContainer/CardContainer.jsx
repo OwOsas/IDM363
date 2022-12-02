@@ -1,5 +1,5 @@
 import React from 'react';
-import './cardContainer.css';
+import style from './cardContainer.css';
 import { ItemCard } from '../index';
 
 //Generate a grid container will all of the cards based on a list of items

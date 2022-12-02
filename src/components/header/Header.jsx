@@ -1,5 +1,5 @@
 import React from 'react';
-import './header.css';
+import style from './header.css';
 import { cart } from '../../img/icons';
 import { Link, useMatch, useResolvedPath } from 'react-router-dom';
 import { useSelector } from 'react-redux';

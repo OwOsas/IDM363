@@ -1,5 +1,5 @@
 import { Header, Footer } from './components';
-import './index.css';
+import style from './index.css';
 import logo from './img/logo.png';
 import { Home, Cart, CreateListing, Detail } from './pages';
 import { Route, Routes } from 'react-router-dom';

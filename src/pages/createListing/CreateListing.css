@@ -27,6 +27,9 @@
   font-size: 1.15rem;
   width: 100%;
 }
+.container .dataFill textarea {
+  min-height: 10rem;
+}
 
 .upload {
   font-size: 1.25rem;

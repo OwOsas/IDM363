@@ -1,7 +1,6 @@
 import React from 'react';
 import { CardContainer } from '../../components';
-import './Home.css';
-
+import style from './Home.css';
 
 function Home({ inventory }) {
   document.title = 'Home';

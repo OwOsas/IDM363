@@ -7,7 +7,7 @@ import {
   updateDoc,
 } from 'firebase/firestore';
 import { useEffect, useState } from 'react';
-import './CreateListing.css';
+import style from './CreateListing.css';
 import { db } from '../../firebase/firebase-config';
 import { CloudinaryUploadWidget } from '../../components';
 import PropTypes from 'prop-types';
@@ -146,7 +146,7 @@ function CreateListing() {
             }
           }}
         >
-          Upload
+          {uid && uid === 'create' ? 'Upload' : 'Update'}
         </button>
       </div>
     </div>
